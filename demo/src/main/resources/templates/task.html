@@ -1,0 +1,24 @@
+<!DOCTYPE html>
+<html xmlns="http://www.w3.org/1999/xhtml"
+      xmlns:th="http://www.thymeleaf.org">
+<head>
+    <title>Hello</title>
+</head>
+<body>
+    <p>Задачи <span></span></p>
+    <p th:text="'Hello, ' + ${greeting} + '!'"/>
+<table>
+</table>
+</body>
+</html>
+
+<!--
+<tr>
+    <th>Ид</th>
+    <th>Условие</th>
+</tr>
+<tr th:each="one: ${tasks}">
+    <td th:text="${one.taskId}"></td>
+    <td th:text="${one.statement}"></td>
+</tr>
+-->
