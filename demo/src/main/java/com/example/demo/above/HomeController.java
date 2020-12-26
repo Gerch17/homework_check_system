@@ -12,7 +12,6 @@ public class HomeController {
 
     @GetMapping("/")
     public String home() {
-        taskService.createTask("Условие задачи", "Название");
         return "home";
     }
 
@@ -25,6 +24,11 @@ public class HomeController {
     @GetMapping("/addtask.html")
     public String addTask(){
         return "addtask";
+    }
+
+    @GetMapping("/registration.html")
+    public String addUser(){
+        return "registration";
     }
 
 }

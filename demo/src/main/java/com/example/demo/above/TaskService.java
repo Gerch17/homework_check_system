@@ -16,7 +16,7 @@ public class TaskService {
         Task task = new Task();
         task.setTaskId(String.valueOf(COUNT_ID++));
         task.setStatement(statement);
-        task.setName("Задача");
+        task.setName(name);
         taskRepository.save(task);
     }
 
