@@ -12,11 +12,11 @@ public class RegistrationService {
 
     @Autowired
     private RegistrationRepository registrationRepository;
-    private static int COUNT_ID = 0;
+    private static long COUNT_ID = 1;
 
     public void createUser(String password, String userName) {
         Registration registration = new Registration();
-        registration.setUserId(String.valueOf(COUNT_ID++));
+        registration.setUserId(COUNT_ID++);
         registration.setPassword(password);
         registration.setUserName(userName);
         registrationRepository.save(registration);

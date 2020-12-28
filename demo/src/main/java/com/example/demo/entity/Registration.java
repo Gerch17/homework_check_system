@@ -1,5 +1,7 @@
 package com.example.demo.entity;
 
+import com.example.demo.repository.RegistrationRepository;
+import com.example.demo.service.RegistrationService;
 import lombok.Data;
 
 import javax.persistence.Entity;
@@ -10,18 +12,24 @@ import javax.persistence.Id;
 public class Registration {
 
     @Id
-    private String userId;
+    private long userId;
 
     private String userName;
 
     private String password;
 
+    public Registration(){}
 
-    public String getUserId() {
+    public Registration(String userName, String password) {
+        this.userName = userName;
+        this.password = password;
+    }
+
+    public long getUserId() {
         return userId;
     }
 
-    public void setUserId(String taskId) {
+    public void setUserId(long taskId) {
         this.userId = taskId;
     }
 
