@@ -18,8 +18,8 @@ public class RegistrationController {
     private RegistrationRepository registrationRepository;
 
     @GetMapping("/registration")
-    public String addUser(@RequestParam String userName, @RequestParam String password, Model model){
-        registrationService.createUser(password, userName);
+    public String addUser(@RequestParam String userName, @RequestParam String password,@RequestParam String role, Model model){
+        registrationService.createUser(password, userName, role);
         return "home";
     }
 }

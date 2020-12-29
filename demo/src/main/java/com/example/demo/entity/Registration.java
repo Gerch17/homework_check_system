@@ -2,27 +2,34 @@ package com.example.demo.entity;
 
 import lombok.Data;
 
-import javax.persistence.Entity;
-import javax.persistence.Id;
+import javax.persistence.*;
 
 @Entity
-@Data
 public class Registration {
 
     @Id
-    private String userId;
+    private long userId;
 
     private String userName;
 
     private String password;
 
+    private String role;
 
-    public String getUserId() {
+    public String getRole() {
+        return role;
+    }
+
+    public void setRole(String role) {
+        this.role = role;
+    }
+
+    public long getUserId() {
         return userId;
     }
 
-    public void setUserId(String taskId) {
-        this.userId = taskId;
+    public void setUserId(long userId) {
+        this.userId = userId;
     }
 
     public String getUserName() {
@@ -40,4 +47,5 @@ public class Registration {
     public void setPassword(String password) {
         this.password = password;
     }
+
 }

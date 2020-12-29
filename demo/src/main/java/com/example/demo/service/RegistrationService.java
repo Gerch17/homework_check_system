@@ -14,11 +14,12 @@ public class RegistrationService {
     private RegistrationRepository registrationRepository;
     private static int COUNT_ID = 0;
 
-    public void createUser(String password, String userName) {
+    public void createUser(String password, String userName, String role) {
         Registration registration = new Registration();
-        registration.setUserId(String.valueOf(COUNT_ID++));
+        registration.setUserId(COUNT_ID++);
         registration.setPassword(password);
         registration.setUserName(userName);
+        registration.setRole(role);
         registrationRepository.save(registration);
     }
 

@@ -2,11 +2,9 @@ package com.example.demo.entity;
 
 import lombok.Data;
 
-import javax.persistence.Entity;
-import javax.persistence.Id;
+import javax.persistence.*;
 
 @Entity
-@Data
 public class Task {
 
     @Id
