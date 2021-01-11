@@ -7,18 +7,16 @@
 <body>
 <p><h1>Условие задачи:</h1></p>
     <p th:text="${greeting}"/>
+    <br>
+    <form>
+        <form action="/addtask">
+            <label>Введите решение:</label>
+            <textarea name="newSolution"></textarea>
+            <br>
+            <button type="submit">Добавить задачу</button>
+        </form>
+    </form>
 <table>
 </table>
 </body>
 </html>
-
-<!--
-<tr>
-    <th>Ид</th>
-    <th>Условие</th>
-</tr>
-<tr th:each="one: ${tasks}">
-    <td th:text="${one.taskId}"></td>
-    <td th:text="${one.statement}"></td>
-</tr>
--->
