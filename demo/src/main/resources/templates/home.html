@@ -3,11 +3,27 @@
       xmlns:th="http://www.thymeleaf.org">
 <head>
     <title>Hello</title>
+    <style>
+        body {
+            background: #E0FFFF;
+        }
+        .btn {
+            display: inline-block; /* Строчно-блочный элемент */
+            background: #8C959D; /* Серый цвет фона */
+            color: #fff; /* Белый цвет текста */
+            padding: 1rem 1.5rem; /* Поля вокруг текста */
+            text-decoration: none; /* Убираем подчёркивание */
+            border-radius: 3px; /* Скругляем уголки */
+        }
+    </style>
 </head>
 <body>
-<a href="/tasks">Список задач</a>
 
-<a href="/addtask.html"><p>Добавить задачу</p></a>
-<a href="/registration.html"><p>Зарегистрироваться</p></a>
+<a href="/tasks" class="btn"><p>Список задач</p></a>
+<a href="/addtask.html" class="btn"><p>Добавить задачу</p></a>
+<a href="/registration.html" class="btn"><p>Зарегистрироваться</p></a>
+<form th:action="@{/logout}" method="post" class="btn">
+    <input type="submit" value="Выйти из системы"/>
+</form>
 </body>
 </html>

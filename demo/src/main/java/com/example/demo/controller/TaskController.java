@@ -17,21 +17,31 @@ public class TaskController {
     @Autowired
     private TaskRepository taskRepository;
 
-/*    @GetMapping("/tasks")
-    public String task(Model model) {
-        final Iterable<Task> tasks = taskService.getTasks();
-        model.addAttribute("tasks", tasks);
-        model.addAttribute("count", taskRepository.count());
-        return "task";
-    }*/
+    @Autowired
+    private AddSolutionController addSolutionController;
 
     @GetMapping("/task/{id}")
-    public String Hello(@PathVariable("id") String id, Model model)
-    {
+    public String task(@PathVariable("id") String id, Model model){
+        addSolutionController.setTaskID(id);
         int ID = Integer.parseInt(id);
         model.addAttribute("greeting", taskService.gettingTask(ID));
         return "task";
     }
+
+//    @GetMapping("/addSolution/{id}")
+//    public String addSolution(@PathVariable("id") String id, @RequestParam String newSolution, Model model){
+//        taskService.createSolution(newSolution);
+//        return "home";
+//    }
+
+
+//    @GetMapping("/task/{id}")
+//    public String Hello(@PathVariable("id") String id, Model model)
+//    {
+//        int ID = Integer.parseInt(id);
+//        model.addAttribute("greeting", taskService.gettingTask(ID));
+//        return "task";
+//    }
 
     @GetMapping("/tasks")
     public String TaskList (Model model) {

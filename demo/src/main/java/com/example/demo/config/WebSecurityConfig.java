@@ -40,7 +40,12 @@ public class WebSecurityConfig extends WebSecurityConfigurerAdapter {
                     .antMatchers("/task/**").hasAnyRole("USER", "ADMIN")
                     .antMatchers("/").permitAll()
                 .and()
-                    .formLogin();
+                    .formLogin()
+                    .loginPage("/login")
+                    .permitAll()
+                .and()
+                    .logout()
+                    .permitAll();
 
     }
 

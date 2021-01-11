@@ -1,8 +1,12 @@
 package com.example.demo.service;
 
+import com.example.demo.entity.Solution;
 import com.example.demo.entity.Task;
+import com.example.demo.handler.fileWorker.FileWorker;
+import com.example.demo.repository.SolutionRepository;
 import com.example.demo.repository.TaskRepository;
 import org.springframework.beans.factory.annotation.Autowired;
+import org.springframework.security.core.context.SecurityContextHolder;
 import org.springframework.stereotype.Service;
 
 import java.util.Optional;
@@ -12,7 +16,10 @@ public class TaskService {
 
     @Autowired
     private TaskRepository taskRepository;
+    @Autowired
+    private SolutionRepository solutionRepository;
     private static int COUNT_ID = 0;
+    private static long SLT_ID = 0;
 
     public void createTask(String statement, String name) {
         Task task = new Task();
@@ -20,6 +27,20 @@ public class TaskService {
         task.setStatement(statement);
         task.setName(name);
         taskRepository.save(task);
+    }
+    public void createSolution(String newSolution, String id)
+    {
+        String currentUser = SecurityContextHolder.getContext().getAuthentication().getName();
+        Solution solution = new Solution();
+        Task task = new Task();
+        solution.setTaskID(id);
+        solution.setSolution(newSolution);
+        solution.setRight(null);
+        solution.setChecked(false);
+        solution.setSolutionID(SLT_ID++);
+        solution.setStudentName(currentUser);
+        solutionRepository.save(solution);
+        FileWorker fileWorker = new FileWorker(String.valueOf(SLT_ID), newSolution);
     }
 
     public String gettingTask(int id)

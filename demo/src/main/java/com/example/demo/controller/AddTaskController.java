@@ -11,8 +11,6 @@ import org.springframework.web.bind.annotation.*;
 public class AddTaskController {
     @Autowired
     private TaskService taskService;
-    @Autowired
-    private TaskRepository taskRepository;
 
     @GetMapping("/addtask")
     public String addTask(@RequestParam String taskName, @RequestParam String newTask, Model model){
