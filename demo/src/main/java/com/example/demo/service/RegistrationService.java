@@ -1,6 +1,6 @@
 package com.example.demo.service;
 
-import com.example.demo.entity.Registration;
+import com.example.demo.entity.Users;
 import com.example.demo.repository.RegistrationRepository;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
@@ -15,26 +15,27 @@ public class RegistrationService {
     private static int COUNT_ID = 0;
 
     public void createUser(String password, String userName, String role) {
-        Registration registration = new Registration();
-        registration.setUserId(COUNT_ID++);
-        registration.setPassword(password);
-        registration.setUserName(userName);
-        registration.setRole(role);
-        registrationRepository.save(registration);
+        Users users = new Users();
+        users.setUserId(COUNT_ID++);
+        users.setPassword(password);
+        users.setUsername(userName);
+        users.setEnabled(true);
+        users.setRole(role);
+        registrationRepository.save(users);
     }
 
     public String gettingUserName(int id)
     {
-        Optional<Registration> registration = registrationRepository.findById(String.valueOf(id));
+        Optional<Users> users = registrationRepository.findById(String.valueOf(id));
 
-        return registration.get().getUserName();
+        return users.get().getUsername();
     }
 
 
-    public Iterable<Registration> getUsersList()
+    public Iterable<Users> getUsersList()
     {
-        Iterable<Registration> registration = registrationRepository.findAll();
+        Iterable<Users> users = registrationRepository.findAll();
 
-        return registration;
+        return users;
     }
 }

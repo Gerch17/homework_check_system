@@ -20,6 +20,6 @@ public class RegistrationController {
     @GetMapping("/registration")
     public String addUser(@RequestParam String userName, @RequestParam String password,@RequestParam String role, Model model){
         registrationService.createUser(password, userName, role);
-        return "home";
+        return "/home";
     }
 }

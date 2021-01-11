@@ -1,20 +1,29 @@
 package com.example.demo.entity;
 
-import lombok.Data;
-
 import javax.persistence.*;
 
 @Entity
-public class Registration {
+public class Users {
 
     @Id
     private long userId;
 
-    private String userName;
+    private String username;
 
     private String password;
 
     private String role;
+
+    private boolean enabled;
+
+    public boolean isEnabled() {
+        return enabled;
+    }
+
+    public void setEnabled(boolean enabled) {
+        this.enabled = enabled;
+    }
+
 
     public String getRole() {
         return role;
@@ -32,12 +41,12 @@ public class Registration {
         this.userId = userId;
     }
 
-    public String getUserName() {
-        return userName;
+    public String getUsername() {
+        return username;
     }
 
-    public void setUserName(String userName) {
-        this.userName = userName;
+    public void setUsername(String userName) {
+        this.username = userName;
     }
 
     public String getPassword() {
