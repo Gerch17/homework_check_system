@@ -16,10 +16,10 @@ public class HomeController {
         return "home";
     }
 
-    @GetMapping("/task.html")
+    @GetMapping("/courses.html")
     public String task()
     {
-        return "task";
+        return "courses";
     }
 
     @GetMapping("/addtask.html")

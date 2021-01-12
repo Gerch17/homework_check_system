@@ -9,7 +9,7 @@ import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.security.core.context.SecurityContextHolder;
 import org.springframework.stereotype.Service;
 
-import java.util.Optional;
+import java.util.*;
 
 @Service
 public class TaskService {
@@ -21,8 +21,9 @@ public class TaskService {
     private static int COUNT_ID = 0;
     private static long SLT_ID = 0;
 
-    public void createTask(String statement, String name) {
+    public void createTask(String statement, String name, String courseID) {
         Task task = new Task();
+        task.setCourseId(courseID);
         task.setTaskId(String.valueOf(COUNT_ID++));
         task.setStatement(statement);
         task.setName(name);
@@ -43,6 +44,12 @@ public class TaskService {
         FileWorker fileWorker = new FileWorker(String.valueOf(SLT_ID), newSolution);
     }
 
+    public String getStatement(String id){
+        Optional<Task> task = taskRepository.findById(id);
+
+        return task.get().getStatement();
+    }
+
     public String gettingTask(int id)
     {
         Optional<Task> task = taskRepository.findById(String.valueOf(id));
@@ -50,11 +57,29 @@ public class TaskService {
         return task.get().getStatement();
     }
 
-    public Iterable<Task> getTaskList()
+    public Set getCoursesList()
     {
-        Iterable<Task> task = taskRepository.findAll();
+        Iterable<Task> courses = taskRepository.findAll();
+        Set<String> courseIdList = new LinkedHashSet<String>();
 
-        return task;
+        for (Task course: courses) {
+            courseIdList.add(course.getCourseId());
+        }
+
+        courseIdList.stream().sorted();
+        return courseIdList;
+    }
+
+    public Set<Task> getTaskList(String courseId)
+    {
+        Iterable<Task> tasks = taskRepository.findAll();
+        Set<Task> tasksIdList = new LinkedHashSet<Task>();
+        for (Task task: tasks) {
+            if(task.getCourseId().equals(courseId)) {
+                tasksIdList.add(task);
+            }
+        }
+        return tasksIdList;
     }
 
     public Iterable<Task> getTasks() {

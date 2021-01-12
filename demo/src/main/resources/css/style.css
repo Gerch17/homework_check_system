@@ -1,16 +1,25 @@
-* {
-    box-sizing: border-box;
-}
+
+
 body {
     background: #E0FFFF;
 }
-.decor {
+
+decor_1 {
     position: relative;
     max-width: 800px;
     margin: 50px auto 0;
     background: white;
     border-radius: 30px;
 }
+
+decor_2 {
+    position: relative;
+    max-width: 400px;
+    margin: 200px auto 0;
+    background: white;
+    border-radius: 30px;
+}
+
 .form-left-decoration, .form-right-decoration {
     content: "";
     position: absolute;
@@ -19,14 +28,17 @@ body {
     background: #f69a73;
     border-radius: 20px;
 }
+
 .form-left-decoration {
     bottom: 60px;
     left: -30px;
 }
+
 .form-right-decoration {
     top: 60px;
     right: -30px;
 }
+
 .form-left-decoration:before, .form-left-decoration:after, .form-right-decoration:before, .form-right-decoration:after {
     content: "";
     position: absolute;
@@ -35,21 +47,26 @@ body {
     border-radius: 30px;
     background: white;
 }
+
 .form-left-decoration:before {
     top: -20px;
 }
+
 .form-left-decoration:after {
     top: 20px;
     left: 10px;
 }
+
 .form-right-decoration:before {
     top: -20px;
     right: 0;
 }
+
 .form-right-decoration:after {
     top: 20px;
     right: 10px;
 }
+
 .circle {
     position: absolute;
     bottom: 80px;
@@ -59,9 +76,11 @@ body {
     border-radius: 50%;
     background: white;
 }
+
 .form-inner {
     padding: 50px;
 }
+
 .form-inner input {
     display: block;
     width: 100%;
@@ -72,6 +91,8 @@ body {
     border-width: 0;
     border-radius: 20px;
     font-family: 'Roboto', sans-serif;
+    outline: none;
+    -moz-appearance: none;
 }
 
 .form-inner textarea {
@@ -85,7 +106,9 @@ body {
     border-width: 0;
     border-radius: 20px;
     font-family: 'Roboto', sans-serif;
-
+    outline: none;
+    -moz-appearance: none;
+    resize: vertical;
 }
 
 .form-inner input[type="submit"] {
@@ -94,6 +117,8 @@ body {
     border-bottom: 4px solid #d87d56;
     color: white;
     font-size: 14px;
+    outline: none;
+    -moz-appearance: none;
 }
 
 .form-inner h3 {
@@ -103,4 +128,28 @@ body {
     font-weight: 500;
     font-size: 24px;
     color: #707981;
+}
+
+.form-inner h2 {
+    text-align: left;
+    margin-top: 20px;
+    font-family: 'Roboto', sans-serif;
+    font-weight: 500;
+    font-size: 18px;
+    color: #707981;
+}
+
+.a1 {
+    color: #707981;
+    text-decoration: none;
+}
+
+.form-inner a {
+    text-align: left;
+    margin-top: 0;
+    font-family: 'Roboto', sans-serif;
+    font-weight: 500;
+    font-size: 18px;
+    color: black;
+    word-break: break-all;
 }

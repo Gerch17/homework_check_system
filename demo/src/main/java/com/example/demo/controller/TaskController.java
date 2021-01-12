@@ -25,27 +25,13 @@ public class TaskController {
         addSolutionController.setTaskID(id);
         int ID = Integer.parseInt(id);
         model.addAttribute("greeting", taskService.gettingTask(ID));
+        model.addAttribute("statement", taskService.getStatement(id));
         return "task";
     }
 
-//    @GetMapping("/addSolution/{id}")
-//    public String addSolution(@PathVariable("id") String id, @RequestParam String newSolution, Model model){
-//        taskService.createSolution(newSolution);
-//        return "home";
-//    }
-
-
-//    @GetMapping("/task/{id}")
-//    public String Hello(@PathVariable("id") String id, Model model)
-//    {
-//        int ID = Integer.parseInt(id);
-//        model.addAttribute("greeting", taskService.gettingTask(ID));
-//        return "task";
-//    }
-
-    @GetMapping("/tasks")
-    public String TaskList (Model model) {
-        model.addAttribute("task", taskService.getTaskList());
+    @GetMapping("/tasks/{id}")
+    public String TaskList (@PathVariable("id") String courseId, Model model) {
+        model.addAttribute("tasks", taskService.getTaskList(courseId));
         return "tasks";
     }
-}
+

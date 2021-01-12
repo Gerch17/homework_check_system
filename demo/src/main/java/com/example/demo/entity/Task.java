@@ -10,6 +10,8 @@ public class Task {
     @Id
     private String taskId;
 
+    private String courseId;
+
     private String name;
 
     private String statement;
@@ -37,5 +39,13 @@ public class Task {
 
     public void setStatement(String statement) {
         this.statement = statement;
+    }
+
+    public String getCourseId() {
+        return courseId;
+    }
+
+    public void setCourseId(String courseId) {
+        this.courseId = courseId;
     }
 }

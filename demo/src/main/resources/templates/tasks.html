@@ -5,7 +5,7 @@
     <title>Списко задач</title>
 </head>
 <body>
-<div th:each="task : ${task}">
+<div th:each="task : ${tasks}">
     <a th:href="@{/task/{id}(id=${task.getTaskId()})}" th:text="${task.getName()}">user</a>
 </div>
 </body>

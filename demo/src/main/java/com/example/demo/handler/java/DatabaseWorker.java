@@ -14,9 +14,9 @@ public class DatabaseWorker {
     public DatabaseWorker() {
         try {
             connect();
-            psInsert = connection.prepareStatement("INSERT INTO Tests (course_number, task_number, input, output) VALUES (?,?,?,?);");
-            psSelectInput = connection.prepareStatement("SELECT input FROM Tests WHERE course_number=? and task_number=?;");
-            psSelectOutput = connection.prepareStatement("SELECT output FROM Tests WHERE course_number=? and task_number=?;");
+            psInsert = connection.prepareStatement("INSERT INTO Test (course_number, task_number, input, output) VALUES (?,?,?,?);");
+            psSelectInput = connection.prepareStatement("SELECT input FROM Test WHERE course_number=? and task_number=?;");
+            psSelectOutput = connection.prepareStatement("SELECT output FROM Test WHERE course_number=? and task_number=?;");
         } catch (ClassNotFoundException | SQLException e) {
             e.printStackTrace();
         }
@@ -92,7 +92,7 @@ public class DatabaseWorker {
 
     private static void connect() throws ClassNotFoundException, SQLException {
         Class.forName("org.sqlite.JDBC");
-        connection = DriverManager.getConnection("jdbc:sqlite:Handler/src/main/resources/Database.db");
+        connection = DriverManager.getConnection("jdbc:sqlite:C:\\Users\\TambovcevGO\\idea\\homework_check_system\\sqlitesample.sqlite");
         stmt = connection.createStatement();
     }
 }

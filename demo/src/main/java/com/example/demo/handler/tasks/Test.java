@@ -1,4 +1,4 @@
-package tasks;
+package com.example.demo.handler.tasks;
 
 import java.util.Scanner;
 

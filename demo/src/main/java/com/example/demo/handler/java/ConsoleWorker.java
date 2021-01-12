@@ -12,7 +12,7 @@ public class ConsoleWorker {
         commands = new String[]{"java", name + ".java"};
         process = new ProcessBuilder(commands);
         //PUT HERE YOUR OWN PATH
-        process.directory(new File("D:\\Krok\\CROC-Coder\\Handler\\src\\main\\tasks"));
+        process.directory(new File("C:\\Users\\TambovcevGO\\idea\\homework_check_system\\demo\\src\\main\\java\\com\\example\\demo\\handler\\tasks\\"+name));
         try {
             isRun = process.start();
         } catch (IOException e) {

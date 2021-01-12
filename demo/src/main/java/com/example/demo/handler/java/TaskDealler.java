@@ -9,7 +9,7 @@ public class TaskDealler {
     TaskDealler() {
         try {
             Class.forName("org.sqlite.JDBC");
-            co = DriverManager.getConnection("jdbc:sqlite:Handler/src/main/resources/TaskDB.db");
+            co = DriverManager.getConnection("jdbc:sqlite:C:\\Users\\TambovcevGO\\idea\\homework_check_system\\sqlitesample.sqlite");
         } catch (Exception e) {
             e.printStackTrace();
         }

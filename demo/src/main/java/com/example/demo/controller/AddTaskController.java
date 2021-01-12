@@ -13,8 +13,8 @@ public class AddTaskController {
     private TaskService taskService;
 
     @GetMapping("/addtask")
-    public String addTask(@RequestParam String taskName, @RequestParam String newTask, Model model){
-        taskService.createTask(newTask, taskName);
+    public String addTask(@RequestParam String taskName, @RequestParam String newTask, @RequestParam String courseId,  Model model){
+        taskService.createTask(newTask, taskName, courseId);
         return "home";
     }
 
