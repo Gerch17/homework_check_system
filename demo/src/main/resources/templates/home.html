@@ -2,7 +2,7 @@
 <html xmlns="http://www.w3.org/1999/xhtml"
       xmlns:th="http://www.thymeleaf.org">
 <head>
-    <title>Hello</title>
+    <title>Главная</title>
     <style>
         body {
             background: #E0FFFF;
@@ -22,6 +22,7 @@
 <a href="/tasks" class="btn"><p>Список задач</p></a>
 <a href="/addtask.html" class="btn"><p>Добавить задачу</p></a>
 <a href="/registration.html" class="btn"><p>Зарегистрироваться</p></a>
+
 <form th:action="@{/logout}" method="post" class="btn">
     <input type="submit" value="Выйти из системы"/>
 </form>

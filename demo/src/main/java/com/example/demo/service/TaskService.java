@@ -2,7 +2,7 @@ package com.example.demo.service;
 
 import com.example.demo.entity.Solution;
 import com.example.demo.entity.Task;
-import com.example.demo.handler.fileWorker.FileWorker;
+import com.example.demo.handler.FileWorker;
 import com.example.demo.repository.SolutionRepository;
 import com.example.demo.repository.TaskRepository;
 import org.springframework.beans.factory.annotation.Autowired;
