@@ -1,5 +1,7 @@
 package com.example.demo.handler.java;
 
+import com.example.demo.handler.PathConst;
+
 import java.sql.*;
 import java.util.ArrayList;
 
@@ -91,8 +93,8 @@ public class DatabaseWorker {
     }
 
     private static void connect() throws ClassNotFoundException, SQLException {
-        Class.forName("org.sqlite.JDBC");
-        connection = DriverManager.getConnection("jdbc:sqlite:C:\\Users\\TambovcevGO\\idea\\homework_check_system\\sqlitesample.sqlite");
+        Class.forName("com.mysql.cj.jdbc.Driver");
+        connection = DriverManager.getConnection(PathConst.SQL_PATH);
         stmt = connection.createStatement();
     }
 }

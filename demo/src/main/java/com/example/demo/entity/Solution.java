@@ -1,38 +1,64 @@
 package com.example.demo.entity;
 
 
+import org.springframework.data.jpa.repository.Modifying;
+import org.springframework.data.jpa.repository.Query;
+import org.springframework.data.repository.query.Param;
+
 import javax.persistence.Entity;
+import javax.persistence.GeneratedValue;
+import javax.persistence.GenerationType;
 import javax.persistence.Id;
 
 @Entity
 public class Solution {
     @Id
-    private long solutionID;
+    private long solution_id;
 
-    private String taskID;
+    private String course_id;
+
+    private String task_id;
 
     private String solution;
 
-    private String studentName;
+    private String student_name;
 
-    private Boolean isChecked;
+    private Boolean is_checked;
 
-    private Boolean isRight;
+    private Boolean is_right;
 
-    public long getSolutionID() {
-        return solutionID;
+    private String fileName;
+
+    public String getFileName() {
+        return fileName;
     }
 
-    public void setSolutionID(long solutionID) {
-        this.solutionID = solutionID;
+    public void setFileName(String fileName) {
+        this.fileName = fileName;
     }
 
-    public String getTaskID() {
-        return taskID;
+    public String getCourse_id() {
+        return course_id;
     }
 
-    public void setTaskID(String taskID) {
-        this.taskID = taskID;
+    public void setCourse_id(String courseID) {
+        this.course_id = courseID;
+    }
+
+    public long getSolution_id() {
+        return solution_id;
+    }
+
+    public void setSolution_id(long solutionID) {
+        this.solution_id = solutionID;
+    }
+
+    public String getTask_id() {
+        return task_id;
+    }
+
+    public void setTask_id(String taskID) {
+        this.task_id = taskID;
     }
 
     public String getSolution() {
@@ -43,27 +69,28 @@ public class Solution {
         this.solution = solution;
     }
 
-    public String getStudentName() {
-        return studentName;
+    public String getStudent_name() {
+        return student_name;
     }
 
-    public void setStudentName(String studentName) {
-        this.studentName = studentName;
+    public void setStudent_name(String studentName) {
+        this.student_name = studentName;
     }
 
     public Boolean getChecked() {
-        return isChecked;
+        return is_checked;
     }
 
     public void setChecked(Boolean checked) {
-        isChecked = checked;
+        is_checked = checked;
     }
 
     public Boolean getRight() {
-        return isRight;
+        return is_right;
     }
 
     public void setRight(Boolean right) {
-        isRight = right;
+        is_right = right;
     }
+
 }

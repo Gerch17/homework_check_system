@@ -16,6 +16,25 @@ public class Task {
 
     private String statement;
 
+    public String getStandard() {
+        return standard;
+    }
+
+    public void setStandard(String standard) {
+        this.standard = standard;
+    }
+
+    private String complexity;
+
+    private String standard;
+
+    public String getComplexity() {
+        return complexity;
+    }
+
+    public void setComplexity(String complexity) {
+        this.complexity = complexity;
+    }
 
     public String getTaskId() {
         return taskId;

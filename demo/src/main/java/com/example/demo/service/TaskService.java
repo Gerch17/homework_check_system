@@ -21,12 +21,14 @@ public class TaskService {
     private static int COUNT_ID = 0;
     private static long SLT_ID = 0;
 
-    public void createTask(String statement, String name, String courseID) {
+    public void createTask(String statement, String name, String courseID, String complexity, String standard) {
         Task task = new Task();
         task.setCourseId(courseID);
         task.setTaskId(String.valueOf(COUNT_ID++));
         task.setStatement(statement);
+        task.setComplexity(complexity);
         task.setName(name);
+        task.setStandard(standard);
         taskRepository.save(task);
     }
     public void createSolution(String newSolution, String id)
@@ -55,6 +57,17 @@ public class TaskService {
         Optional<Task> task = taskRepository.findById(String.valueOf(id));
 
         return task.get().getStatement();
+    }
+
+    public String getStandardSolution(String name)
+    {
+        Iterable<Task> tasks = taskRepository.findAll();
+        for (Task task : tasks) {
+            if(task.getName().equals(name)){
+                return task.getStandard();
+            }
+        }
+        return "exception in taskservice or dbupdateservice";
     }
 
     public Set getCoursesList()

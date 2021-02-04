@@ -13,7 +13,7 @@
         .decor {
             position: relative;
             max-width: 400px;
-            margin: 200px auto 0;
+            margin: 100px auto 0;
             background: white;
             border-radius: 30px;
         }
@@ -116,9 +116,25 @@
             font-size: 24px;
             color: #707981;
         }
+
+        .button {
+            display: inline-block;
+            padding: 15px 25px;
+            font-size: 24px;
+            cursor: pointer;
+            text-align: center;
+            text-decoration: none;
+            outline: none;
+            color: darkgrey;
+            background-color: #E9EFF6;
+            border: none;
+            border-radius: 15px;
+            font-family: 'Roboto', sans-serif;
+        }
     </style>
 </head>
 <body>
+<p><a href="/" class="button">Главная страница</a>
 <form th:action="@{/login}" method="post" class="decor_2">
     <div class="form-left-decoration"></div>
     <div class="form-right-decoration"></div>

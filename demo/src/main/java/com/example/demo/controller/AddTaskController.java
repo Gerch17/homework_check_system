@@ -1,6 +1,7 @@
 package com.example.demo.controller;
 
 import com.example.demo.repository.TaskRepository;
+import com.example.demo.service.HomeService;
 import com.example.demo.service.TaskService;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Controller;
@@ -12,9 +13,13 @@ public class AddTaskController {
     @Autowired
     private TaskService taskService;
 
-    @GetMapping("/addtask")
-    public String addTask(@RequestParam String taskName, @RequestParam String newTask, @RequestParam String courseId,  Model model){
-        taskService.createTask(newTask, taskName, courseId);
+    @Autowired
+    HomeService homeService;
+
+    @GetMapping("/addTaskAction")
+    public String addTask(@RequestParam String taskName, @RequestParam String newTask, @RequestParam String courseId,@RequestParam String complexity, @RequestParam String standard,  Model model){
+        taskService.createTask(newTask, taskName, courseId, complexity, standard);
+        homeService.personalPage(model);
         return "home";
     }
 

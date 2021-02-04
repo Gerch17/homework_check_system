@@ -1,5 +1,7 @@
 package com.example.demo.handler.java;
 
+import com.example.demo.handler.PathConst;
+
 import java.io.*;
 import java.nio.Buffer;
 
@@ -9,10 +11,10 @@ public class ConsoleWorker {
     private Process isRun;
 
     ConsoleWorker(String name) throws IOException {
-        commands = new String[]{"java", name + ".java"};
+        commands = new String[]{"java", name+".java"};
         process = new ProcessBuilder(commands);
         //PUT HERE YOUR OWN PATH
-        process.directory(new File("C:\\Users\\TambovcevGO\\idea\\homework_check_system\\demo\\src\\main\\java\\com\\example\\demo\\handler\\tasks\\"+name));
+        process.directory(new File(PathConst.TASK_PATH +name));
         try {
             isRun = process.start();
         } catch (IOException e) {

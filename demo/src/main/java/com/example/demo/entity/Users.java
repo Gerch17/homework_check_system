@@ -16,6 +16,16 @@ public class Users {
 
     private boolean enabled;
 
+    private int points;
+
+    public int getPoints() {
+        return points;
+    }
+
+    public void setPoints(int points) {
+        this.points = points;
+    }
+
     public boolean isEnabled() {
         return enabled;
     }

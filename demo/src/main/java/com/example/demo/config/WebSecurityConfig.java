@@ -1,7 +1,6 @@
 package com.example.demo.config;
 
 import org.springframework.beans.factory.annotation.Autowired;
-import org.springframework.boot.jdbc.DataSourceBuilder;
 import org.springframework.context.annotation.Bean;
 import org.springframework.security.config.annotation.authentication.builders.AuthenticationManagerBuilder;
 import org.springframework.security.config.annotation.web.builders.HttpSecurity;
@@ -35,9 +34,12 @@ public class WebSecurityConfig extends WebSecurityConfigurerAdapter {
     protected void configure(HttpSecurity http) throws Exception {
         http
                     .authorizeRequests()
-                    .antMatchers("/addtask**").hasRole("ADMIN")
+                    .antMatchers("/addtask/**").hasRole("ADMIN")
+                    .antMatchers("/addtest/**").hasAnyRole("ADMIN")
                     .antMatchers("/tasks/**").hasAnyRole("USER", "ADMIN")
+                    .antMatchers("/courses/**").hasAnyRole("USER", "ADMIN")
                     .antMatchers("/task/**").hasAnyRole("USER", "ADMIN")
+                    .antMatchers("/account").hasAnyRole("USER", "ADMIN")
                     .antMatchers("/").permitAll()
                 .and()
                     .formLogin()
